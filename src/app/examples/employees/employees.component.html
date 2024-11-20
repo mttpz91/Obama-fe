@@ -1,0 +1,42 @@
+@if (employees$ | async; as employees) {
+<p-table #employeesTable [value]="employees.value" dataKey="Id" lazy="true" [columns]="selectedColumns" [rows]="10"
+  [loading]="isLoading()" [paginator]="true" [totalRecords]="employees.count" (onPage)="goToPage($event)"
+  (onFilter)="filter($event)">
+
+  <ng-template pTemplate="caption">
+    <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (onClick)="clear(employeesTable)" />
+  </ng-template>
+
+  <ng-template pTemplate="header" let-employee>
+    <tr>
+      @for(col of cols; track col.field) {
+      <th>{{col.header}}</th>
+      }
+    </tr>
+    <tr>
+      @for(col of cols; track col.field) {
+      <th>
+        <p-columnFilter type="text" [field]="col.field" [placeholder]="'Search by ' + col.header"
+          [ariaLabel]="'Filter ' + col.header" />
+      </th>
+      }
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-employee let-columns="columns">
+    <tr>
+      <td>{{employee.GivenName}}</td>
+      <td>{{employee.FamilyName}}</td>
+      <td>{{employee.Mail}}</td>
+      <td>{{employee.Role.Name}}</td>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="4">No employees found.</td>
+    </tr>
+  </ng-template>
+
+</p-table>
+}

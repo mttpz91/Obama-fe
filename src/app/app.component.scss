@@ -1,0 +1,98 @@
+// Variables - Euris Color Palette
+$primary-blue: #003876;    // Blu scuro principale
+$secondary-blue: #0066CC;  // Blu chiaro per hover e accenti
+$light-blue: #E5F0FF;     // Blu molto chiaro per sfondi
+$white: #FFFFFF;          // Bianco
+$text-dark: #333333;      // Testo scuro
+$text-gray: #666666;      // Testo grigio
+
+// Layout
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+// Navbar
+.navbar {
+    height: 60px;
+    background-color: $white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+
+    &__brand {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    &__logo {
+        height: 40px;
+        width: auto;
+    }
+
+    &__title {
+        color: $primary-blue;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-left: 3rem;
+    }
+}
+
+// Content Container
+.content {
+    flex: 1;
+    display: flex;
+    background-color: $light-blue;
+}
+
+// Sidebar
+.sidebar {
+    width: 250px;
+    background-color: $white;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+
+    &__content {
+        padding: 20px 0;
+    }
+
+    &__nav {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item {
+        margin: 8px 0;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        padding: 12px 20px;
+        color: $text-dark;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        gap: 12px;
+
+        &:hover {
+            background-color: $light-blue;
+            color: $secondary-blue;
+        }
+    }
+
+    &__icon {
+        font-size: 1.2rem;
+        width: 24px;
+        text-align: center;
+    }
+}
+
+// Main Content
+.main {
+    flex: 1;
+    padding: 30px;
+    background-color: #ededed;
+}
